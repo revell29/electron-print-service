@@ -1,6 +1,7 @@
 {
   "name": "jubelio-pos-print-service",
   "description": "Print service for Jubelio POS",
+  "version": "1.1.0",
   "scripts": {
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
     "build:main": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.main.prod.ts",
@@ -13,6 +14,8 @@
     "start:main": "cross-env NODE_ENV=development electron -r ts-node/register/transpile-only ./src/main/main.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
     "test": "jest",
+    "release": "standard-version",
+    "push-release": "git push --follow-tags origin main",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -192,8 +195,11 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.3",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "conventional-changelog": "^3.1.25",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.4",
     "electron-updater": "^4.6.5",
@@ -205,15 +211,13 @@
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
     "react-router-dom": "^6.2.1",
+    "standard-version": "^9.3.2",
     "usb-detection": "^4.13.0",
     "ws": "^8.5.0"
   },
   "devEngines": {
     "node": ">=14.x",
     "npm": ">=7.x"
-  },
-  "collective": {
-    "url": "https://opencollective.com/electron-react-boilerplate-594"
   },
   "browserslist": [],
   "prettier": {
