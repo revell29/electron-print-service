@@ -25,18 +25,18 @@ jobs:
         with:
           node-version: 14.17.0
 
-      - name: Install Yarn
-        run: npm install -g yarn
+      # - name: Install Yarn
+      #   run: npm install -g yarn
 
-      - name: Setup Nodejs with yarn caching
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.17.0
-          cache: yarn
+      # - name: Setup Nodejs with yarn caching
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 14.17.0
+      #     cache: yarn
 
       - name: Install dependencies
         run: |
-          yarn install
+          npm install
 
       - name: Publish releases
         env:
@@ -48,5 +48,5 @@ jobs:
           # This is used for uploading release assets to github
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
-          yarn build
-          yarn package
+          npm run build
+          npm exec electron-builder -- --publish always --win --mac
