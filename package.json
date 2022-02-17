@@ -207,7 +207,6 @@
     "electron-log": "^4.4.4",
     "electron-updater": "^4.6.5",
     "escpos": "^3.0.0-alpha.6",
-    "escpos-usb": "^3.0.0-alpha.4",
     "framer-motion": "^6",
     "history": "^5.2.0",
     "react": "^17.0.2",
@@ -215,7 +214,6 @@
     "react-feather": "^2.0.9",
     "react-router-dom": "^6.2.1",
     "standard-version": "^9.3.2",
-    "usb-detection": "^4.13.0",
     "ws": "^8.5.0"
   },
   "devEngines": {
