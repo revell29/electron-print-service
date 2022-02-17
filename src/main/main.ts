@@ -41,12 +41,7 @@ export default class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 let wss: WebSocketServer | null = null;
-
-ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
-});
+usbDetect.startMonitoring();
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -120,12 +115,17 @@ const createWindow = async () => {
 
       ws.on('message', async (data) => {
         try {
-          await printAdapter(data);
-        } catch (error) {
-          ws.send({
-            message: 'error',
-            detail: error,
-          });
+          const deviceConnected = await USB.findPrinter();
+          if (deviceConnected.length === 0) {
+            ws.send(
+              JSON.stringify({ message: 'error', detail: 'Printer not found' })
+            );
+          } else {
+            await printAdapter(data);
+          }
+        } catch (error: any) {
+          console.log('[ERROR PRINTER]', error);
+          ws.send(JSON.stringify({ message: 'error', detail: error }));
         }
       });
     });
@@ -210,10 +210,7 @@ app
   })
   .catch(console.log);
 
-usbDetect.startMonitoring();
-
 ipcMain.on('printer', async (event) => {
-  usbDetect.startMonitoring();
   const deviceConnected = await USB.findPrinter();
 
   if (deviceConnected.length === 0) {

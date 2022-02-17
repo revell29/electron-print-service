@@ -6,12 +6,10 @@ import * as USB from 'escpos-usb';
 const printerAdapter = async (data: any) => {
   try {
     const device = await USB.getDevice();
-    const options = { width: 80 };
-    const printer = new escpos.Printer(device, options);
+    const printer = new escpos.Printer(device);
 
     device.open(() => {
-      printer.raw(data).flush();
-      // device.write(data);
+      printer.raw(data).flush().close();
     });
 
     return true;
