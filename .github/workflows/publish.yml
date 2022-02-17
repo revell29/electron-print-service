@@ -21,14 +21,14 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install Node and NPM
-        uses: actions/setup-node@v1
+        uses: borales/actions-yarn@v2.3.0
         with:
           node-version: 14.17.0
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
         run: |
-          npm install
+          yarn install
 
       - name: Publish releases
         env:
@@ -40,6 +40,5 @@ jobs:
           # This is used for uploading release assets to github
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
-          npm run postinstall
-          npm run build
-          npm exec electron-builder -- --publish always --win --mac --linux
+          yarn build
+          yarn exec electron-builder -- --publish always --win --mac
