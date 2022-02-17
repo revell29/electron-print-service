@@ -49,4 +49,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
           yarn build
-          yarn exec electron-builder -- --publish always --win --mac
+          yarn package
