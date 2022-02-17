@@ -32,6 +32,9 @@
       "prettier --ignore-path .eslintignore --single-quote --write"
     ]
   },
+  "overrides": {
+    "usb": "^1.9.2"
+  },
   "build": {
     "productName": "Jubelio POS Print Service",
     "appId": "org.jbPos.printService",
