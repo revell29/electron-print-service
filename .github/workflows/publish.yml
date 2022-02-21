@@ -36,10 +36,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm uninstall escpos usb-detection
           cd release/app && npm install
           cd ../../ && npm install
-          npm install usb-detection escpos --save
 
       - name: Publish releases
         env:
