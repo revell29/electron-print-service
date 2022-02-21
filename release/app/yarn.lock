@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@types/w3c-web-usb@^1.0.4":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@types/w3c-web-usb/-/w3c-web-usb-1.0.5.tgz#90284d17f35de981670c85d29053ae8b88fa5543"
-  integrity sha512-dYolx2XWesl1TMu+1BjtjU6eC6c2zZ2VDKhjU4f/mtR3+UBfMW6h1tPCQt7leY5Y8JBg0Fe/mMnoDMkPPNX9sw==
-
 ajv@^6.12.3:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
@@ -875,12 +870,11 @@ usb-detection@^4.13.0:
     nan "^2.15.0"
     prebuild-install "^6.1.4"
 
-usb@*:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/usb/-/usb-2.1.2.tgz#8300e902efde648fe7a796a05578d35b02d2711a"
-  integrity sha512-0guTB8ywiH2MyZLCnzdg5kdUvUmS3wCBNV3a05Ul1jo2DuqrdjauJeN4F3O8LNoxB+hFsy6hcN+Rd0hjaOO2DQ==
+usb@*, usb@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/usb/-/usb-1.9.2.tgz#fb6b36f744ecc707a196c45a6ec72442cb6f2b73"
+  integrity sha512-dryNz030LWBPAf6gj8vyq0Iev3vPbCLHCT8dBw3gQRXRzVNsIdeuU+VjPp3ksmSPkeMAl1k+kQ14Ij0QHyeiAg==
   dependencies:
-    "@types/w3c-web-usb" "^1.0.4"
     node-addon-api "^4.2.0"
     node-gyp-build "^4.3.0"
 

@@ -32,9 +32,6 @@
       "prettier --ignore-path .eslintignore --single-quote --write"
     ]
   },
-  "overrides": {
-    "usb": "^1.9.2"
-  },
   "build": {
     "productName": "Jubelio POS Print Service",
     "appId": "org.jbPos.printService",
@@ -216,11 +213,12 @@
     "standard-version": "^9.3.2",
     "ws": "^8.5.0"
   },
-  "devEngines": {
-    "node": ">=14.x",
-    "npm": ">=7.x"
-  },
   "browserslist": [],
+  "overrides": {
+    "escpos-usb@^3.0.0-alpha.4": {
+      "usb": "^1.9.2"
+    }
+  },
   "prettier": {
     "overrides": [
       {

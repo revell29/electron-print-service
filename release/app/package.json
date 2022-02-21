@@ -15,7 +15,17 @@
   },
   "license": "MIT",
   "dependencies": {
+    "-": "0.0.1",
     "escpos": "^3.0.0-alpha.6",
+    "escpos-usb": "^3.0.0-alpha.4",
+    "npm": "^8.5.1",
+    "upgrade": "^1.1.0",
+    "usb": "^1.9.2",
     "usb-detection": "^4.13.0"
+  },
+  "overrides": {
+    "escpos-usb@^3.0.0-alpha.4": {
+      "usb": "^1.9.2"
+    }
   }
 }
