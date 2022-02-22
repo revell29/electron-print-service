@@ -35,6 +35,7 @@
   "build": {
     "productName": "Jubelio POS Print Service",
     "appId": "org.jbPos.printService",
+    "copyright": "Copyright © 2022 Jubelio",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -91,9 +92,7 @@
       "./assets/**"
     ],
     "publish": {
-      "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate"
+      "provider": "github"
     }
   },
   "license": "MIT",

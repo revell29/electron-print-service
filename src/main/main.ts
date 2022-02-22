@@ -31,6 +31,14 @@ import { resolveHtmlPath } from './util';
 import MenuBuilder from './menu';
 import printAdapter from './printer';
 
+const appFolder = path.dirname(process.execPath);
+const updateExe = path.resolve(
+  appFolder,
+  '..',
+  'Jubelio POS Print Service.exe'
+);
+const exeName = path.basename(process.execPath);
+
 export default class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
@@ -95,10 +103,13 @@ function createTray() {
   tray.setContextMenu(contextMenu);
 }
 
+// init to create window
 const createWindow = async () => {
   if (isDevelopment) {
     await installExtensions();
   }
+
+  if (!isDevelopment) launchAtStartup();
 
   if (!tray) {
     createTray();
@@ -209,6 +220,28 @@ app
     });
   })
   .catch(console.log);
+
+// make app auto launch
+function launchAtStartup() {
+  if (process.platform === 'darwin') {
+    app.setLoginItemSettings({
+      openAtLogin: true,
+      openAsHidden: true,
+    });
+  } else {
+    app.setLoginItemSettings({
+      openAtLogin: true,
+      openAsHidden: true,
+      path: updateExe,
+      args: [
+        '--processStart',
+        `${exeName}`,
+        '--process-start-args',
+        `--hidden`,
+      ],
+    });
+  }
+}
 
 ipcMain.on('printer', async (event) => {
   const deviceConnected = await USB.findPrinter();
