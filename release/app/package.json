@@ -1,12 +1,10 @@
 {
-  "name": "electron-react-boilerplate",
-  "version": "4.5.0",
-  "description": "A foundation for scalable desktop apps",
+  "name": "jubelio-pos-print-service",
+  "version": "1.0.0",
+  "description": "Print service for Jubelio POS",
   "main": "./dist/main/main.js",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://github.com/electron-react-boilerplate"
+    "name": "Jubelio POS Print Service"
   },
   "scripts": {
     "electron-rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
