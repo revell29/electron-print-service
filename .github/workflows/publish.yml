@@ -25,18 +25,18 @@ jobs:
         with:
           node-version: 14.17.0
 
-      - name: Install Yarn
-        run: npm install -g yarn
+      # - name: Install Yarn
+      #   run: npm install -g yarn
 
-      - name: Setup Nodejs with yarn caching
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.17.0
-          cache: yarn
+      # - name: Setup Nodejs with yarn caching
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 14.17.0
+      #     cache: yarn
 
       - name: Install dependencies
         run: |
-          cd ./release/app && npm install
+          cd release/app && npm install
           cd ../../ && npm install
 
       - name: Publish releases
